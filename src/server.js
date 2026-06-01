@@ -35,6 +35,8 @@ const clientOrigins = [
   process.env.CLIENT_URL || "http://localhost:5176",
   "http://localhost:5173",
   "http://localhost:5174",
+  " https://societysphere-backend.onrender.com",
+  "https://society-sphere-server.vercel.app/"
 ].filter(Boolean);
 
 app.use(express.json());
