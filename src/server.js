@@ -36,7 +36,8 @@ const clientOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   " https://societysphere-backend.onrender.com",
-  "https://society-sphere-server.vercel.app/"
+  "https://society-sphere-server.vercel.app/",
+  "https://society-sphere-client-d6m3oj6mj-kaushikazalas-projects.vercel.app/"
 ].filter(Boolean);
 
 app.use(express.json());
