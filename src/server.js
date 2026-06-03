@@ -36,7 +36,7 @@ const clientOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "https://societysphere-backend.onrender.com",
-  "https://society-sphere-client.vercel.app/", //add new vercal url
+  "https://society-sphere-client.vercel.app", //add new vercal url
 ].filter(Boolean);
 
 app.use(express.json());
