@@ -10,7 +10,7 @@ const missingEnv = requiredEnv.filter((key) => !process.env[key]);
 if (missingEnv.length) {
   throw new Error(
     `Missing required environment variables: ${missingEnv.join(", ")}. ` +
-      `Create a .env file or set these variables before starting the server.`
+      `Create a .env file or set these variables before starting the server.`,
   );
 }
 
@@ -35,9 +35,8 @@ const clientOrigins = [
   process.env.CLIENT_URL || "http://localhost:5176",
   "http://localhost:5173",
   "http://localhost:5174",
-  " https://societysphere-backend.onrender.com",
-  "https://society-sphere-client.vercel.app/",
-  "https://society-sphere-client-d6m3oj6mj-kaushikazalas-projects.vercel.app/"
+  "https://societysphere-backend.onrender.com",
+  "https://society-sphere-client.vercel.app/", //add new vercal url
 ].filter(Boolean);
 
 app.use(express.json());
@@ -52,7 +51,7 @@ app.use(
       }
     },
     credentials: true,
-  })
+  }),
 );
 
 // Import middlewares
@@ -64,7 +63,8 @@ const mongoURI = process.env.MONGODB_URI;
 
 // Allow an escape hatch for local/dev environments where TLS validation may fail
 // Set MONGODB_TLS_INSECURE=true in your .env to allow insecure TLS (NOT for production)
-const tlsInsecure = String(process.env.MONGODB_TLS_INSECURE || "false").toLowerCase() === "true";
+const tlsInsecure =
+  String(process.env.MONGODB_TLS_INSECURE || "false").toLowerCase() === "true";
 
 const mongooseOptions = {
   tls: true,
@@ -166,7 +166,7 @@ initCronJobs();
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
   console.log(`Server is running`);
-  console.log(`Socket.IO server initialized`); 
+  console.log(`Socket.IO server initialized`);
 });
 
 // Graceful shutdown
